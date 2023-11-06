@@ -22,21 +22,21 @@ CSVLOC = os.path.join(cfg.DATADIR, 'tsla_prc.csv')
 # returns an instance of `dt.datetime` representing the current date/time.
 
 # Instance of `dt.datetime` with the current date/time
-dt_now  = '?'
+dt_now  = dt.datetime.now()
 
 # This will produce a string representing the date/time in `dt_now`
-#print(dt_now)
+print(dt_now)
 
 # This will confirm that `dt_now` is an instance of the `datetime` class
-#print(type(dt_now))
+print(type(dt_now))
 
 
 # From the `print` statement above, we can see that instances of `datetime`
 # store the date (year, month, day) and time (hour, minute, second,
 # microsecond). You can access these attributes directly from the instance:
 
-#s = 'Date in day/month/year format is: {}/{}/{} '.format(dt_now.day, dt_now.month, dt_now.year)
-#print(s)
+s = 'Date in day/month/year format is: {}/{}/{} '.format(dt_now.day, dt_now.month, dt_now.year)
+print(s)
 #
 
 
@@ -44,34 +44,34 @@ dt_now  = '?'
 #   Comparing `repr` and `print` (datetime instances)
 # ----------------------------------------------------------------------------
 # String representing the data included in the object
-#print(dt_now)
+print(dt_now)
 
 # This will give you a string representing how the instance could be
 # constructed
-#print(repr(dt_now))
+print(repr(dt_now))
 
 
 # Create another datetime instance with value 2021-08-21 13:24:27.283311
 
-#a_little_ago = dt.datetime(
-#    year=2021,
-#    month=8,
-#    day=21,
-#    hour=13,
-#    minute=27,
-#    second=1, microsecond=283311)
-#print(a_little_ago)
+a_little_ago = dt.datetime(
+    year=2021,
+    month=8,
+    day=21,
+    hour=13,
+    minute=27,
+    second=1, microsecond=283311)
+print(a_little_ago)
 #
 
 
 # Note that we don't have to pass all arguments
 
-#dt_other = dt.datetime(
-#    year=2021,
-#    month=8,
-#    day=21,
-#    )
-#print(dt_other)
+dt_other = dt.datetime(
+    year=2021,
+    month=8,
+    day=21,
+    )
+print(dt_other)
 #
 
 
@@ -81,14 +81,14 @@ dt_now  = '?'
 
 # Lets create two other datetime instances
 
-#dt0 = dt.datetime(year=2019, month=12, day=31)
-#dt1 = dt.datetime(year=2020, month=1, day=1)
+dt0 = dt.datetime(year=2019, month=12, day=31)
+dt1 = dt.datetime(year=2020, month=1, day=1)
 #
 
 # Operations between datetime objects will return timedelta objects
-delta  = '?'
-#print(repr(delta))
-#print(delta)
+delta  = dt1 - dt0
+print(repr(delta))
+print(delta)
 
 
 # These two dates are 12 hours apart
@@ -101,13 +101,13 @@ new_delta  = '?'
 #   - `delta` will be a period of 12 hours
 #   - `end` will be the ending date
 
-#start = dt.datetime(year=2020, month=12, day=31, hour=0)
-#delta = dt.timedelta(hours=12)
+start = dt.datetime(year=2020, month=12, day=31, hour=0)
+delta = dt.timedelta(hours=12)
 ## This is the new date
-#end = start + delta
+end = start + delta
 #
-#print(start)
-#print(end)
+print(start)
+print(end)
 #
 
 
@@ -152,9 +152,9 @@ s  = '?'
 #   Load the data into a dataframe
 # ----------------------------------------------------------------------------
 
-#prc = pd.read_csv(CSVLOC)
-#print(prc)
-#prc.info()
+prc = pd.read_csv(CSVLOC)
+print(prc)
+prc.info()
 #
 ## 'Date' is a column of strings with dates.
 #print(prc.loc[:, 'Date'])
